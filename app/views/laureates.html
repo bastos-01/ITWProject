@@ -1,0 +1,57 @@
+﻿    <section>
+
+      <div class="page-header">
+        <button id="lauSeguinte" data-bind="click: lauSeg" class="btn btn-primary" style="float: right;"><i class="fas fa-arrow-circle-right"></i></button>
+        <button id="lauAnterior" disabled="true" data-bind="click: lauAnt" class="btn btn-primary" style="float: right; margin-right: 10px;"><i class="fas fa-arrow-circle-left"></i></button>
+
+          <h1 data-bind="text:className" style="padding-left: 5%;"></h1>
+          <h4 id="numeroPagLau" style="float: right;">1/9</h4>
+
+
+      </div>
+
+        <div class="col-lg-2" style="display: inline-block;">
+                <h2>Sort by</h2>
+                 <select id="sortby" class="custom-select" data-bind="click: sort" style="width: 100%; margin-bottom: 5px;">
+                      <option selected value="">Select one</option>
+                      <option value="Nome">Name</option>
+                      <option value="CidadeNascimento">Birth city</option>
+                      <option value="DataNascimento">Birth date</option>
+                      <option value="DataMorte">Death date</option>
+                    </select>
+                 
+                 <select id="ordem" class="custom-select" data-bind="click: sort" style="width: 100%;">
+                      <option selected value="asc">Crescent</option>
+                      <option value="desc">Decrescent</option>
+                    </select>
+                    <hr />
+                <h3>Gender</h3>
+                <input style="margin-left: 10%;" id="male" type="Checkbox" onclick="veriMale()" aria-label="Checkbox for following text input"/> Male</br>
+                 <input style="margin-left: 10%;" id="female" type="Checkbox" onclick="veriFemale()"  aria-label="Checkbox for following text input"/> Female</br>
+                 <hr />
+              
+                
+        </div>
+
+        <div class="col-lg-10" style="display: inline-block;">
+        <table class="table table-hover">
+            <th style="background-color: black; color: white; border: none; border-color: black; margin: none; padding: none;">Nome</th>
+            <th style="background-color: black; color: white; border: none; margin: none; padding: none;">País</th>
+            <tbody id="tabletaLau" data-bind="foreach: laureates">
+                <td style="border: none;" class="col-lg-6" >
+                     <a data-bind="html:Nome, attr:{ href: '#laureadoDetalhes/'+LaureadoId, title: DataNascimento}"></a>
+                </td>
+                <td style="border: none;" class="col-lg-4" data-bind="html: CidadeNascimento.Pais.Nome">
+                </td>
+            </tbody>
+        </table>
+      </div>
+      <div></div>
+      <!-- /ko -->
+
+      <div class="clearfix"></div>
+      <!-- ko if:error -->
+      <div class="bs-callout bs-callout-danger" data-bind="html:error"></div>
+      <!-- /ko -->
+      <div class="bs-callout bs-callout-info" data-bind="html:description"></div>
+    </section>

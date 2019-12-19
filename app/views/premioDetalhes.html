@@ -1,0 +1,45 @@
+<section>
+    <div data-bind="with:laureateDetails">
+        <div class="page-header">
+          <button class="btn" style="float:right;" onclick="window.location.href='#prizes'"><i class="fas fa-arrow-left"></i></button>
+            <h2 data-bind="text: $parent.displayName"></h2>
+
+        </div>
+        <div class="row">
+            <div class="col-md-8" style="display: inline-block;">
+                <dl class="dl-horizontal">
+                    <dt>Year</dt><dd data-bind="text: Ano"></dd>
+                    <dt>Category</dt><dd data-bind="text: Categoria.Nome"></dd>
+                    <dt id="mot">Motivation</dt><dd data-bind="text: Motivacao"></dd>
+                    <dt>Prize</dt><dd data-bind="text: Titulo"></dd>
+                    <dt></dt>
+                </dl>
+        
+
+     <hr/>
+                    <h3>Who won</h3>
+                </div>
+     <div class="col-md-8" data-bind= "foreach: Individuo">
+                <dl class="dl-horizontal">
+                   
+                    <dt>Name</dt><dd data-bind="text: Nome" ></dd>
+                    <dt>Birth Date</dt><dd data-bind="text: parseDate(DataNascimento)"></dd>
+                    
+                    <!-- ko if:DataMorte != null -->
+                    <dt>Death Date</dt><dd data-bind="text: parseDate(DataMorte)"></dd>
+
+
+                    <!-- /ko -->
+                    <hr/>
+                  
+                    
+                    
+                </dl>
+                
+</div>
+
+                <div ><img class="displayShow col-md-4"  id="imagem"  src=""/>
+        </div>
+</div>
+</div>   
+</section>

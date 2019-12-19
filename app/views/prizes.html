@@ -1,0 +1,65 @@
+﻿    <section>
+      <div class="page-header">
+        <button id="premioSeguinte" data-bind="click: premioSeg" class="btn btn-primary" style="float: right;"><i class="fas fa-arrow-circle-right"></i></button>
+        <button id="premioAnterior" disabled="true" data-bind="click: premioAnt" class="btn btn-primary" style="float: right; margin-right: 10px;"><i class="fas fa-arrow-circle-left"></i></button>
+       
+          <h1 data-bind="text:className" style="padding-left: 5%;"></h1>
+          <h4 id="numeroPagPremio" style="float: right; margin-bottom: 0; padding-bottom: 0;">1/6</h4>
+
+      </div>
+      <div>
+        
+        
+      
+      </div>
+      <div class="col-lg-3 ">
+        <h3 >Filter by category</h3>
+        <select id="filtroCategoria" class="custom-select" data-bind="click: filtroCat" style="width: 100%;">
+          <option value="" selected>All categories</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Literature">Literature</option>
+          <option value="Peace">Peace</option>
+          <option value="Medicine">Medicine</option>
+        </select>
+        <hr />
+        <h3 >Filter by year</h3>
+        <div class="fomr-group">
+          <input class="form-control" data-bind= "event: {change: filtroCat}" id="spin" type="number" name="value" min="1901" max="2016" placeholder="Between 1901 and 2016">
+        </div>
+        <hr />
+      </div>
+
+       <div class="col-lg-9"> <table  class="table table-hover" style="margin-top: 10px;">
+            <th style="background-color: black; color: white; ">Prize</th>            
+            <tbody data-bind="foreach: prizes" id="tableprizes">
+                <td style="border: none;">
+                 <a data-bind="html:Titulo, attr:{ href: '#premioDetalhes/'+PremioNobelId, title: Titulo}"></a>
+                </td>
+            </tbody>
+        </table>
+      
+      </div>
+      <div class="modal" id="modalErro" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Invalid Number</h2>
+      </div>
+      <div class="modal-body">
+        <p>You must choose a number between 1901 and 2016!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- /ko -->
+
+      <div class="clearfix"></div>
+      <!-- ko if:error -->
+      <div class="bs-callout bs-callout-danger" data-bind="html:error"></div>
+      <!-- /ko -->
+      <div class="bs-callout bs-callout-info" data-bind="html:description"></div>
+    </section>
